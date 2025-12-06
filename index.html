@@ -1,172 +1,75 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>سورة النبأ</title>
+<meta charset="UTF-8">
 
-  <!-- Пример подключения арабского шрифта (можешь заменить на свой) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+body {
+  background: #050508;
+  color: #f7f7f7;
+  font-family: 'Amiri', serif;
+  margin: 0;
+  padding: 20px;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: #050508;
-      font-family: 'Amiri', system-ui, serif;
-      color: #f7f7f7;
-    }
+.container {
+  max-width: 520px;
+  margin: auto;
+  font-size: 26px;
+  line-height: 2.3;
+  text-align: justify;
+}
 
-    .screen {
-      max-width: 480px;
-      margin: 0 auto;
-      min-height: 100vh;
-      padding: 16px 12px 32px;
-    }
+.ayah {
+  display: inline; /* ключевой момент */
+  position: relative;
+  padding-left: 34px; /* место под номер */
+}
 
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      color: #a0a0b5;
-      margin-bottom: 20px;
-    }
-
-    .top-bar span {
-      opacity: 0.9;
-    }
-
-    .surah-frame {
-      position: relative;
-      border-radius: 14px;
-      border: 1px solid #6f5f43;
-      padding: 10px 18px;
-      margin-bottom: 24px;
-      background:
-        radial-gradient(circle at 0 0, #c9a46b 0, transparent 52px),
-        radial-gradient(circle at 100% 0, #c9a46b 0, transparent 52px),
-        radial-gradient(circle at 0 100%, #c9a46b 0, transparent 52px),
-        radial-gradient(circle at 100% 100%, #c9a46b 0, transparent 52px),
-        linear-gradient(#2a2520, #18130f);
-      box-shadow: 0 0 16px rgba(0, 0, 0, 0.7);
-    }
-
-    .surah-name {
-      text-align: center;
-      font-size: 22px;
-      color: #fff9e6;
-      letter-spacing: 1px;
-    }
-
-    .bismillah {
-      text-align: center;
-      font-size: 18px;
-      margin: 24px 0 8px;
-      color: #f3e2bb;
-    }
-
-    .content-card {
-      border-radius: 16px;
-      padding: 18px 16px 24px;
-      background: #0c0d12;
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.02),
-        0 16px 32px rgba(0, 0, 0, 0.7);
-    }
-
-    .ayah {
-      direction: rtl;
-      font-size: 20px;
-      line-height: 2.1;
-      margin-bottom: 8px;
-      position: relative;
-      padding-inline-end: 38px; /* место под номер аята справа */
-      text-align: justify;
-    }
-
-    .ayah-num {
-      position: absolute;
-      inset-inline-end: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      border: 1px solid #cba96c;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: #f0e1bf;
-      background: radial-gradient(circle at 30% 20%, #f8f0d2, #8d6a3e);
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
-    }
-
-    .ayah:last-child {
-      margin-bottom: 0;
-    }
-
-    .juz-label {
-      margin-top: 18px;
-      text-align: left;
-      direction: ltr;
-      font-size: 12px;
-      color: #8e8eaa;
-    }
-  </style>
+.num {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  font-size: 12px;
+  border-radius: 50%;
+  border: 1px solid #cba96c;
+  color: #f0e1bf;
+  background: radial-gradient(circle at 30% 20%, #f8f0d2, #8d6a3e);
+  margin: 0 4px 0 0;
+}
+</style>
 </head>
 <body>
-  <div class="screen">
-    <div class="top-bar">
-      <span>Ан-Наба</span>
-      <span>джуз 30</span>
-    </div>
 
-    <div class="surah-frame">
-      <div class="surah-name">سورة النبأ</div>
-    </div>
+<div class="container">
 
-    <div class="content-card">
-      <div class="bismillah">
-        ﷽
-      </div>
+  <span class="ayah">
+    عَمَّ يَتَسَاءَلُونَ <span class="num">١</span>
+  </span>
 
-      <!-- Примеры первых аятов, остальные можно добавить по шаблону .ayah -->
-      <div class="ayah">
-        عَمَّ يَتَسَاءَلُونَ
-        <span class="ayah-num">١</span>
-      </div>
+  <span class="ayah">
+    عَنِ النَّبَإِ الْعَظِيمِ <span class="num">٢</span>
+  </span>
 
-      <div class="ayah">
-        عَنِ النَّبَإِ الْعَظِيمِ
-        <span class="ayah-num">٢</span>
-      </div>
+  <span class="ayah">
+    الَّذِي هُمْ فِيهِ مُخْتَلِفُونَ <span class="num">٣</span>
+  </span>
 
-      <div class="ayah">
-        الَّذِي هُمْ فِيهِ مُخْتَلِفُونَ
-        <span class="ayah-num">٣</span>
-      </div>
+  <span class="ayah">
+    كَلَّا سَيَعْلَمُونَ <span class="num">٤</span>
+  </span>
 
-      <div class="ayah">
-        كَلَّا سَيَعْلَمُونَ
-        <span class="ayah-num">٤</span>
-      </div>
+  <span class="ayah">
+    ثُمَّ كَلَّا سَيَعْلَمُونَ <span class="num">٥</span>
+  </span>
 
-      <div class="ayah">
-        ثُمَّ كَلَّا سَيَعْلَمُونَ
-        <span class="ayah-num">٥</span>
-      </div>
-    </div>
+</div>
 
-    <div class="juz-label">
-      582
-    </div>
-  </div>
 </body>
 </html>
