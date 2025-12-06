@@ -5,48 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>سورة النبأ</title>
 
-  <!-- Mushaf-style шрифт -->
+  <!-- Mushaf-стиль: KFGQPC Hafs (Web adaptation) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; }
-
+    /* ====== ФОН (приглушённый, глубокий, с текстурой) ====== */
     body {
       margin: 0;
       padding: 0;
-      background: #0f1012; /* Фон стал более серым */
+      background: #0c0d10;
       font-family: 'Scheherazade New', serif;
       color: #f5f2e8;
+      position: relative;
+    }
+
+    /* Лёгкий шум поверх фона */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3e%3crect width='200' height='200' fill='%230c0d10'/%3e%3ccircle cx='10' cy='10' r='1' fill='rgba(255,255,255,0.02)'/%3e%3ccircle cx='50' cy='80' r='1' fill='rgba(255,255,255,0.015)'/%3e%3ccircle cx='120' cy='40' r='1' fill='rgba(255,255,255,0.02)'/%3e%3ccircle cx='180' cy='150' r='1' fill='rgba(255,255,255,0.02)'/%3e%3c/svg%3e");
+      opacity: 0.5;
     }
 
     .screen {
       max-width: 430px;
       margin: 0 auto;
-      min-height: 100vh;
       padding: 18px 14px 32px;
+      position: relative;
+      z-index: 2;
     }
 
-    /* Верхняя панель */
+    /* ====== Верхняя панель ====== */
     .top-bar {
       display: flex;
       justify-content: space-between;
       font-size: 13px;
-      color: #b8bac8;
+      color: #b7b9c5;
       margin-bottom: 22px;
       direction: ltr;
     }
 
-    /* Заголовок суры */
+    /* ====== Заголовок суры ====== */
     .surah-header-inner {
-      position: relative;
+      background: #1b1c20;
+      border: 1px solid #8c744b;
       border-radius: 18px;
       padding: 14px 40px;
-      background: #1a1b1f;
-      border: 1px solid #8b744b;
       box-shadow:
         0 0 0 1px rgba(255,255,255,0.03),
-        0 10px 20px rgba(0,0,0,0.55);
+        0 12px 20px rgba(0,0,0,0.55);
       margin-bottom: 26px;
     }
 
@@ -56,67 +66,73 @@
       color: #fff7db;
     }
 
-    /* Карточка с сурой — теперь тоже серая */
+    /* ====== Карточка с текстом ====== */
     .card {
-      background: #1a1b1f; /* <-- тот же оттенок, что и заголовок */
+      background: #1b1c20; /* тот же серый */
       border-radius: 22px;
-      padding: 24px 20px 30px;
+      padding: 22px 20px 30px;
       box-shadow:
         0 0 0 1px rgba(255,255,255,0.03),
         0 20px 35px rgba(0,0,0,0.7);
     }
 
+    /* ====== Басмала — растянута, как в приложении ====== */
     .bismillah {
       text-align: center;
-      font-size: 24px;
-      margin-bottom: 18px;
+      font-size: 26px;
+      margin-bottom: 10px;
       color: #f3e8cc;
+      transform: scaleX(1.55); /* << растянуто как в UI */
+      display: inline-block;
+      opacity: 0.95;
     }
 
-    /* Аяты */
+    /* ====== Аяты ====== */
     .ayahs {
       direction: rtl;
       text-align: justify;
       font-size: 26px;
-      line-height: 2.4;
-      letter-spacing: 0.05px;
+      line-height: 2.1;      /* плотные строки */
+      word-spacing: 0px;     /* слова близко друг к другу */
+      letter-spacing: 0px;   /* никаких лишних пробелов */
     }
 
     .ayah {
       display: inline;
-      white-space: normal;
     }
 
-    /* Номер аята — уменьшенный интервал и корректный вид */
+    /* ====== Номер аята ====== */
     .ayah-num {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      width: 22px;
-      height: 22px;
+      width: 21px;
+      height: 21px;
       border-radius: 50%;
-      margin-left: 2px;  /* <-- стало ближе */
-      margin-right: 2px;
       font-size: 11px;
       font-weight: 700;
       color: #e8dcc0;
 
-      background: #5a4a2d;
+      margin-left: 1px;
+      margin-right: 1px;
+
+      background: #4d3e25;
       border: 1px solid #bfa06a;
 
       box-shadow:
-        0 0 3px rgba(0,0,0,0.35),
-        inset 0 0 3px rgba(255,255,255,0.06);
+        inset 0 0 3px rgba(255,255,255,0.06),
+        0 0 3px rgba(0,0,0,0.4);
     }
 
+    /* ====== Нижняя панель ====== */
     .bottom-bar {
       margin-top: 18px;
       color: #b2b4c3;
       font-size: 13px;
       direction: ltr;
       display: flex;
-      align-items: center;
       gap: 6px;
+      align-items: center;
     }
 
     .bookmark-icon {
@@ -161,6 +177,7 @@
       <div class="bookmark-icon"></div>
       <span>582</span>
     </div>
+
   </div>
 
   <script>
@@ -176,33 +193,28 @@
       const errorEl = document.getElementById('error');
 
       try {
-        const url =
-          `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${SURAH_NUMBER}`;
-
+        const url = `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${SURAH_NUMBER}`;
         const res = await fetch(url);
-        if (!res.ok) throw new Error('Ошибка API: ' + res.status);
+        if (!res.ok) throw new Error('API error ' + res.status);
 
         const data = await res.json();
-        const verses = data.verses || [];
-
         loaderEl.style.display = 'none';
 
-        verses.forEach((v, idx) => {
-          const spanAyah = document.createElement('span');
-          spanAyah.className = 'ayah';
+        data.verses.forEach((v, index) => {
+          const ayahElement = document.createElement('span');
+          ayahElement.className = 'ayah';
 
-          spanAyah.innerHTML =
+          ayahElement.innerHTML =
             v.text_uthmani +
-            ` <span class="ayah-num">${toArabicIndic(idx + 1)}</span> `;
+            ` <span class="ayah-num">${toArabicIndic(index + 1)}</span> `;
 
-          ayahsEl.appendChild(spanAyah);
+          ayahsEl.appendChild(ayahElement);
         });
 
-      } catch (e) {
+      } catch (err) {
         loaderEl.style.display = 'none';
         errorEl.style.display = 'block';
-        errorEl.textContent = 'Не удалось загрузить аяты.';
-        console.error(e);
+        errorEl.textContent = 'Ошибка загрузки аятов.';
       }
     }
 
