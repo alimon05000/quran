@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>سورة النبأ</title>
 
-  <!-- Шрифт максимально похожий на фото -->
+  <!-- Mushaf-style шрифт -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 
@@ -15,7 +15,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: #0e0f11; /* более серый как на фото */
+      background: #0f1012; /* Фон стал более серым */
       font-family: 'Scheherazade New', serif;
       color: #f5f2e8;
     }
@@ -37,7 +37,7 @@
       direction: ltr;
     }
 
-    /* Заголовок */
+    /* Заголовок суры */
     .surah-header-inner {
       position: relative;
       border-radius: 18px;
@@ -56,9 +56,9 @@
       color: #fff7db;
     }
 
-    /* Карточка */
+    /* Карточка с сурой — теперь тоже серая */
     .card {
-      background: #0b0c0e;
+      background: #1a1b1f; /* <-- тот же оттенок, что и заголовок */
       border-radius: 22px;
       padding: 24px 20px 30px;
       box-shadow:
@@ -78,8 +78,8 @@
       direction: rtl;
       text-align: justify;
       font-size: 26px;
-      line-height: 2.45;
-      letter-spacing: 0.1px;
+      line-height: 2.4;
+      letter-spacing: 0.05px;
     }
 
     .ayah {
@@ -87,26 +87,26 @@
       white-space: normal;
     }
 
-    /* Нумерация аятов — переработана */
+    /* Номер аята — уменьшенный интервал и корректный вид */
     .ayah-num {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      width: 23px;
-      height: 23px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      margin: 0 4px;
+      margin-left: 2px;  /* <-- стало ближе */
+      margin-right: 2px;
       font-size: 11px;
       font-weight: 700;
       color: #e8dcc0;
 
-      /* мягкий тон, как на фото */
       background: #5a4a2d;
       border: 1px solid #bfa06a;
 
       box-shadow:
-        0 0 4px rgba(0,0,0,0.4),
-        inset 0 0 4px rgba(255,255,255,0.08);
+        0 0 3px rgba(0,0,0,0.35),
+        inset 0 0 3px rgba(255,255,255,0.06);
     }
 
     .bottom-bar {
